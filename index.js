@@ -8,7 +8,6 @@ const Engineer = require('./lib/engineer')
 const Intern = require('./lib/engineer')
 const questions = require('./lib/questions')
 
-
 //push to list of employees
 function askForManagerInfo() {
     inquirer
@@ -24,7 +23,6 @@ function askForManagerInfo() {
 
 //loop over stored employees to build an html page that includes all of their information. 
 
-
 async function askForManagerInfo() {
 
     const answers = await inquirer.prompt(/* questions */ )
@@ -33,6 +31,7 @@ async function askForManagerInfo() {
         //ask what they would like to do next
         askForNextAction()
         ))
+        
 }
 
 function askForNextAction() {
