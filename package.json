@@ -1,15 +1,26 @@
 {
-  "name": "homework-week-10",
+  "name": "team-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Homework 10, using node.js, inquirer, and jest.js, generate team HTML from prompts and tests",
   "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimberlym4488/team-generator.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "inquirer": "^8.2.0",
+  "bugs": {
+    "url": "https://github.com/kimberlym4488/team-generator/issues"
+  },
+  "homepage": "https://github.com/kimberlym4488/team-generator#readme",
+  "devDependencies": {
     "jest": "^27.4.7"
   }
 }
