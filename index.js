@@ -6,10 +6,12 @@ const Employee= require("./lib/employee")
 const Manager = require('./lib/manager')
 const Engineer = require('./lib/engineer')
 const Intern = require('./lib/engineer')
-const questions = require('./lib/questions')
+const questions = require('../questions')
+const employees = [];
+const interns = [];
 
 //push to list of employees
-function askForManagerInfo() {
+/*function askForManagerInfo() {
     inquirer
     .prompt()
     .then((answers) => {
@@ -19,24 +21,53 @@ function askForManagerInfo() {
         askforwhattodonext()
         ))
     })
-}
+}*/
 
 //loop over stored employees to build an html page that includes all of their information. 
 
+
 async function askForManagerInfo() {
 
-    const answers = await inquirer.prompt(/* questions */ )
+    try {
+         
+    const answers = await inquirer.prompt(questions
+         )
+         console.log(answers);
         //create and store an object for the manager
         employees.push( new Manager(//pass in data from inquirer);
         //ask what they would like to do next
-        askForNextAction()
+       // askForNextAction()
         ))
-        
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
-function askForNextAction() {
-    askForManagerInfo();
+
+async function menu() {
+
+    try {
+         
+    const answers = await inquirer.prompt(questions
+         )
+         console.log(answers);
+        //create and store an object for the manager
+        employees.push( new Manager(//pass in data from inquirer);
+        //ask what they would like to do next
+       // askForNextAction()
+        ))
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
+
+/*function askForNextAction() {
+    askForManagerInfo();
+}*/
 
 // When you're done
-prompts.complete();
+//prompts.complete();
+askForManagerInfo();
+menu();
