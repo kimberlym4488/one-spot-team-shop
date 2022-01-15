@@ -2,26 +2,19 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const jest = require ('jest')
 const HTMLtemplate = require("./dist/generateHTML")
-const Employee= require("./lib/employee")
+const Employee = require("./lib/employee")
 const Manager = require('./lib/manager')
 const Engineer = require('./lib/engineer')
-const Intern = require('./lib/engineer')
-const questions = require('../questions')
+const Intern = require('./lib/intern')
+const questionsMan = require('./lib/questionsMan')
+const questionsEng = require('./lib/questionsEng')
+const questionsIntern = require('./lib/questionsIntern')
 const employees = [];
-const interns = [];
+const intern = [];
+const manager = [];
+const engineer = [];
 
-//push to list of employees
-/*function askForManagerInfo() {
-    inquirer
-    .prompt()
-    .then((answers) => {
-        //create and store an object for the manager
-        employees.push( new Manager(//pass in data from inquirer);
-        //ask what they would like to do next
-        askforwhattodonext()
-        ))
-    })
-}*/
+
 
 //loop over stored employees to build an html page that includes all of their information. 
 
@@ -30,44 +23,98 @@ async function askForManagerInfo() {
 
     try {
          
-    const answers = await inquirer.prompt(questions
-         )
-         console.log(answers);
+    const answers = await inquirer
+    .prompt
+    (questionsMan)
+      const manager = new Manager(answers.name, answers.id, answers.email, answers.phoneNumber)
+        console.log(answers)
         //create and store an object for the manager
-        employees.push( new Manager(//pass in data from inquirer);
+        employees.push( manager//pass in data from inquirer);
+        )
         //ask what they would like to do next
-       // askForNextAction()
-        ))
+        menu();
     }
+
     catch (error) {
         console.log(error);
     }
 }
-
 
 async function menu() {
 
     try {
          
-    const answers = await inquirer.prompt(questions
-         )
-         console.log(answers);
+    const answers = await inquirer
+    .prompt
+    ([
+        {type: "list",
+         name: "next",
+         message: "Who should we add next?",
+         choices: ["Engineer", "Intern", "I'm done"]
+    }
+    ])
+
+        if (answers.next === "Engineer"){
+            askForEngineerInfo();
+        }
+
         //create and store an object for the manager
-        employees.push( new Manager(//pass in data from inquirer);
-        //ask what they would like to do next
-       // askForNextAction()
-        ))
+        else if (answers.next === "Intern"){
+            askForInternInfo();
+        }
+        
+        else{
+            console.log(employees);
+            console.log("Time to be done");
+            fs.writeFile('team.HTML', HTMLtemplate(employees),
+        (err) =>
+        err ? console.error(err) : console.log('Success! Your team.html page is now ready to be viewed!'))
+        //pass in data from inquirer);
+        }
+        
     }
     catch (error) {
         console.log(error);
     }
 }
 
-/*function askForNextAction() {
-    askForManagerInfo();
-}*/
+async function askForEngineerInfo() {
 
-// When you're done
-//prompts.complete();
+    try {
+         
+    const answers = await inquirer
+    .prompt
+    (questionsEng)
+         const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
+        //create and store an object for the manager
+        employees.push(engineer)//pass in data from inquirer);
+        
+        //ask what they would like to do next
+        menu();
+    }
+
+    catch (error) {
+        console.log(error);
+    }
+}
+
+async function askForInternInfo() {
+
+    try {
+         
+    const answers = await inquirer
+    .prompt
+    (questionsIntern)
+         const intern= new Intern(answers.name, answers.id, answers.email, answers.school)
+        //create and store an object for the manager
+        employees.push(intern)//pass in data from inquirer);
+        //ask what they would like to do next
+        menu();
+    }
+
+    catch (error) {
+        console.log(error);
+    }
+}
+
 askForManagerInfo();
-menu();

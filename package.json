@@ -24,6 +24,7 @@
     "jest": "^27.4.7"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.7.2",
     "inquirer": "^8.2.0"
   }
 }
