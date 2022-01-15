@@ -18,7 +18,8 @@ function HTMLtemplate(employees){
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../assets/background.jpg" alt="" width="30" height="24" class="d-inline-block align-text-middle justify-content-middle">
+            <a class="navbar-brand" href="#">
+            <img src="./assets/background.jpg" alt="" width="30" height="24" class="d-inline-block align-text-middle justify-content-middle">
                 Team-Builder
             </a>
         </div>
@@ -27,10 +28,6 @@ function HTMLtemplate(employees){
     <br>
     <div class="container">
         <main class="row">
-            
-            <div class="col">col</div>
-            <div class="col">col</div>
-            <div class="col">col</div>
             ${getCardHTML(employees)}
         </main>
 </body>
@@ -74,19 +71,21 @@ function getCardHTML(employees){
         console.log(employees.length);
         console.log(employees[i].getRole());
 return `
+<div class="col">
     <div class="card" style="width: 18rem;opacity: .75;color:white;background-color:black">
-        <img src="..." class="card-img-top" alt="...">
+       ${displayIcon(employees[i].getRole())}
         <div class="card-body">
             <h5 class="card-title">${employees[i].name}</h5>
-            <p class="card-text">${employees[i].getRole()}.</p>
-            <p class="card-text">${displayIcon(employees[i].getRole())}.</p>
+            <p class="card-text">${employees[i].getRole()}</p>
+           ${displayIcon(employees[i].getRole())}
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">"ID: ${employees[i].id}</li>
-            <li class="list-group-item">${employees[i].email}</li>
+            <li class="list-group-item">ID: ${employees[i].id}</li>
+            <li class="list-group-item">Email:${employees[i].email}</li>
             <li class="list-group-item">${displayTitle(employees[i])}</li>
         </ul>
-    </div>`
+    </div>
+</div>`
     
     }   
 } 
