@@ -71,7 +71,6 @@ async function menu() {
         err ? console.error(err) : console.log('Success! Your team.html page is now ready to be viewed!'))
         //pass in data from inquirer);
         }
-        
     }
     catch (error) {
         console.log(error);

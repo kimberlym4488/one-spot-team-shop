@@ -1,9 +1,4 @@
-
-
 function HTMLtemplate(employees){
-
-
-
  
  return `
     <!DOCTYPE html>
@@ -39,50 +34,46 @@ function HTMLtemplate(employees){
             ${getCardHTML(employees)}
         </main>
 </body>
-
 </html>`
 }
 
 function displayTitle(employees){
 
-    for (i=0; i< employees.length; i++){
 
-        if (employees[i].getRole() === "Manager"){
-            console.log(employees[i].phoneNumber)
-            return `Phone number: ${employees[i].phoneNumber}`
+        if (employees.getRole() === "Manager"){
+            return `Phone number: ${employees.getOfficeNumber()}`
         }
     
-        else if (employees[i].getRole() === "Engineer"){
-            return `Github: ${employees[i].github}`
+        else if (employees.getRole()=== "Engineer"){
+            return `Github: ${employees.getGithub()}`
         }
     
-        else if (Intern){
-            return `School: ${employees[i].school}`
+        else if (employees.getRole() === "Intern"){
+            return `School: ${employees.getSchool()}`
         }
-    }
 }
+//error here, employees.getRole() not a function. need to call Engineer.getRole()?
+function displayIcon(role){
 
-function displayIcon(employees){
-
-    for (i=0; i< employees.length; i++){
-
-        if (employees[i].getRole() === "Manager"){
-           return `<i class="bi bi-cup"></i>`
+        if (role === "Manager"){
+           return `<i class="bi bi-cup lg"></i>`
         }
     
-        else if (employees[i].getRole() === "Engineer"){
-            return `<i class="bi bi-emoji-sunglasses"></i>`
+        else if (role === "Engineer"){
+            return `<i class="bi bi-emoji-sunglasses lg"></i>`
         }
     
-        else if (employees[i].getRole() === "Intern"){
-            return `<i class="bi bi-book"></i>`
+        else if (role === "Intern"){
+            return `<i class="bi bi-book lg"></i>`
         }
-    }
 }
 
 function getCardHTML(employees){
+    
     for (i=0; i<employees.length; i++){
-    return `
+        console.log(employees.length);
+        console.log(employees[i].getRole());
+return `
     <div class="card" style="width: 18rem;opacity: .75;color:white;background-color:black">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
@@ -93,12 +84,11 @@ function getCardHTML(employees){
         <ul class="list-group list-group-flush">
             <li class="list-group-item">"ID: ${employees[i].id}</li>
             <li class="list-group-item">${employees[i].email}</li>
-            <li class="list-group-item">${displayTitle(employees[i].getRole())}</li>
+            <li class="list-group-item">${displayTitle(employees[i])}</li>
         </ul>
     </div>`
     
     }   
 } 
-    
 
 module.exports = HTMLtemplate;
