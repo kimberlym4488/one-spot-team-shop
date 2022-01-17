@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const jest = require ('jest')
-const HTMLtemplate = require("./dist/generateHTML")
+const HTMLtemplate = require("./src/generateHTML")
 const Employee = require("./lib/employee")
 const Manager = require('./lib/manager')
 const Engineer = require('./lib/engineer')
@@ -10,14 +10,8 @@ const questionsMan = require('./lib/questionsMan')
 const questionsEng = require('./lib/questionsEng')
 const questionsIntern = require('./lib/questionsIntern')
 const employees = [];
-const intern = [];
-const manager = [];
-const engineer = [];
-
-
 
 //loop over stored employees to build an html page that includes all of their information. 
-
 
 async function askForManagerInfo() {
 
@@ -64,9 +58,8 @@ async function menu() {
         }
         
         else{
-            console.log(employees);
-            console.log("Time to be done");
-            fs.writeFile('team.HTML', HTMLtemplate(employees),
+
+            fs.writeFile('./dist/team.HTML', HTMLtemplate(employees),
         (err) =>
         err ? console.error(err) : console.log('Success! Your team.html page is now ready to be viewed!'))
         //pass in data from inquirer);
