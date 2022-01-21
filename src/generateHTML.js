@@ -77,12 +77,9 @@ function displayIcon(role){
 function getCardHTML(employees){
     
     for (var i=0; i<employees.length; i++){
-       console.log(employees[i],employees[i].name,
-        displayIcon(employees[i].getRole()),
-            employees[i].getRole(),
-            employees[i].id,)
+      
     let cardInfo = `
-        <div class="col card" id="cardBox" style="opacity:.70; color:white;background-color:black; width:11rem">
+        <div class="col card" id="cardBox" style="opacity:.70; color:white;background-color:black; width:12rem; height: auto">
            
             <div class="card-body text-center justify-content-center">
                 <h5 class="card-title">${employees[i].name}</h5>

@@ -23,8 +23,7 @@ async function askForManagerInfo() {
         const manager = new Manager(answers.name, answers.id, answers.email, answers.phoneNumber)
         console.log(answers)
         //create and store an object for the manager
-        employees.push(manager//pass in data from inquirer);
-        )
+        employees.push(manager)//pass in data from inquirer);
         //ask what they would like to do next
         menu();
     }
@@ -45,20 +44,20 @@ async function menu() {
                     type: "list",
                     name: "next",
                     message: "Who should we add next?",
-                    choices: ["Engineer", "Intern", "I'm done"]
-                }
+                    choices: ["Engineer", "Intern", "I'm done"],
+                },
             ])
 
-        if (answers.next === "Engineer") {
-            askForEngineerInfo();
-        }
+        if (answers.next === "Engineer")    {
+            askForEngineerInfo()
+            }
 
         //create and store an object for the manager
         else if (answers.next === "Intern") {
-            askForInternInfo();
+            askForInternInfo()
         }
 
-        else {
+        else if (answers.next === "I'm done") {
             console.log(employees)
 
             fs.writeFile('./dist/team.HTML', HTMLtemplate(employees),
@@ -67,9 +66,9 @@ async function menu() {
             //pass in data from inquirer);
         }
     }
-    catch (error) {
-        console.log(error);
-    }
+        catch (error) {
+            console.log(error);
+        }
 }
 
 async function askForEngineerInfo() {
@@ -83,7 +82,6 @@ async function askForEngineerInfo() {
         //create and store an object for the manager
         console.log(answers)
         employees.push(engineer)//pass in data from inquirer);
-
         //ask what they would like to do next
         menu();
     }
