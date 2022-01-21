@@ -1,6 +1,7 @@
 var cardArray = [];
 //importing the employees array from the index.js file
 function HTMLtemplate(employees){
+    console.log(employees)
     //this template literal will fill up the team.HTML file when returned to index.js 'write to file' function.
 getCardHTML(employees)
  return `
@@ -76,7 +77,10 @@ function displayIcon(role){
 function getCardHTML(employees){
     
     for (var i=0; i<employees.length; i++){
-
+       console.log(employees[i],employees[i].name,
+        displayIcon(employees[i].getRole()),
+            employees[i].getRole(),
+            employees[i].id,)
     let cardInfo = `
         <div class="col card" id="cardBox" style="opacity:.70; color:white;background-color:black; width:11rem">
            

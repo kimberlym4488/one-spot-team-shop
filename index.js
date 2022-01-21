@@ -59,6 +59,7 @@ async function menu() {
         }
 
         else {
+            console.log(employees)
 
             fs.writeFile('./dist/team.HTML', HTMLtemplate(employees),
                 (err) =>
