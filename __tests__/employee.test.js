@@ -10,12 +10,25 @@ describe("Employee", () => {
     describe("Initialization", () => {
 
     //testing of the object properties after constructing a new instance
-        it ("should build with these properties", () =>{
-            
+        it("should return the user entered name value for the name parameter", () => {
+            //Arrange, create a new employee object
+                const employee = new Employee(this.name)
+                employee.name = "Tabitha Jones"
+           //Act
+        //Call the getName method and store the result
+            let result = employee.getName
+
+             //Assert
+        //The result is equal to an expected value.
+
+        if (result = employee.name){
+            console.log(`${result} is equal to ${employee.name}`)
+            }
+        });
     })
         
-    })
-    //Methods
+})
+/*    //Methods
     describe("getName", () => {
         it ("should build with these properties", () =>{
 
@@ -65,4 +78,4 @@ describe("Employee", () => {
 
     })
     
-}
+}*/
