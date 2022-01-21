@@ -4,6 +4,8 @@ function HTMLtemplate(employees){
     console.log(employees)
     //this template literal will fill up the team.HTML file when returned to index.js 'write to file' function.
 getCardHTML(employees)
+console.log(cardArray);
+cardArray = cardArray.join(' ');
  return `
     <!DOCTYPE html>
 <html lang="en">
@@ -92,10 +94,12 @@ function getCardHTML(employees){
                 <li class="list-group-item">${displayTitle(employees[i])}</li>
             </ul>
             <br>
-        </div>
-        `
+        </div>`
+
     cardArray.push(cardInfo);
+
     }
+
         return
     }
 
