@@ -64,7 +64,7 @@ function displayIcon(role){
         }
     
         else if (role === "Engineer"){
-            return `<i class="bi bi-emoji-sunglasses justify-content-center" "style="width:50px; height:50px"></i>`
+            return `<i class="bi bi-emoji-sunglasses justify-content-center" style="width:50px; height:50px"></i>`
         }
     
         else if (role === "Intern"){
@@ -79,7 +79,7 @@ function getCardHTML(employees){
     for (var i=0; i<employees.length; i++){
       
     let cardInfo = `
-        <div class="col card" id="cardBox" style="opacity:.70; color:white;background-color:black; width:12rem; height: auto">
+        <div class="col card" id="cardBox" style="opacity:.70; color:white;background-color:black; width:14rem; height: auto">
            
             <div class="card-body text-center justify-content-center">
                 <h5 class="card-title">${employees[i].name}</h5>
