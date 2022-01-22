@@ -51,7 +51,7 @@ function displayTitle(employees){
         }
     
         else if (employees.getRole()=== "Engineer"){
-            return `Github: <a href="https://www.github.com/io/${employees.getGithub()}" target="_blank">${employees.getGithub()}</a>`
+            return `Github: <a href="https://github.com/${employees.getGithub()}" target="_blank">${employees.getGithub()}</a>`
         }
     
         else if (employees.getRole() === "Intern"){

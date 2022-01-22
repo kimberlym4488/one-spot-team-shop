@@ -1,94 +1,66 @@
-const Employee = require("../lib/employee")
+const Intern = require("../lib/intern")
 
-//positive tests - testing object properties after things have been constructed. Should throw an error ifprovided no arguments. 
-//should create object with a name and age.
-//describe each function and return values you are getting for each employee, engineer, manager, intern
-
-describe("Employee", () => {
-
-    //Methods
-    describe("Initialization", () => {
-
-    //testing of the object properties after constructing a new instance
-        it("should have four constructors", () => {
-            //Arrange, create a new employee object
-                const employee = new Employee(this.name)
-                employee.name = "Tabitha Jones"
-           //Act
-        //Call the getName method and store the result
-            let result = employee.getName
-
-             //Assert
-        //The result is equal to an expected value.
-
-        if (result = employee.name){
-            console.log(`${result} is equal to ${employee.name}`)
-            }
-        });
-    })
-        
-}) 
-//Methods
-    describe("getName", () => {
-            it("should return the user entered name value for the name parameter", () => {
-            //Arrange, create a new employee object
-                const employee = new Employee(this.name)
-                employee.name = "Tabitha Jones"
-           //Act
-        //Call the getName method and store the result
-            let result = employee.getName
-
-             //Assert
-        //The result is equal to an expected value.
-
-        if (result = employee.name){
-            console.log(`${result} is equal to ${employee.name}`)
-            }
-        });
-    })
-        
-        
-    })
-    describe("getName", () => {
-        it ("should build with these properties", () =>{
-            
-        })
-        //Arrange
-        //Create a new Employee object
-
-        //Act
-        //Call the getName method and store the result
-
-        //Assert
-        //The result is equal to an expected value.
-        
-
-    })
-    describe("getName", () => {
-           it ("should build with these properties", () =>{
-            
-        })
-        
-
-    })
-    describe("getName", () => {
-        it ("should build with these properties", () =>{
-            
-        })
-
-
-    })
-    describe("getName", () => {
-        it ("should build with these properties", () =>{
-            
-        })
-
-    })
-    describe("getName", () => {
-        it ("should build with these properties", () =>{
-            
-        })
-
-    })
+describe("Intern", () => {
+//test methods and properties belonging to intern - get(name, id, email, school, role))
     
-}*/
+    describe("getRole", () => {
+
+        //testing of the object properties after constructing a new instance
+        it("should pass through the entered name when getName is called", () => {
+            //Arrange, create a new Intern object
+            const intern = new Intern("Kim", "56897", "kim@comcast.net", "Eastern Washington University")
+
+            //Act
+            //Call the getName method and store the result
+            const intRole = intern.getRole();
+
+            //Assert
+            //The result is equal to an expected value.
+            expect(intRole).toEqual("Intern")
+        });
+    })
+
+    describe("getName", () => {
+        it("should pass through the stored ID when getID is called", () => {
+
+            const intern = new Intern("Kim", "56897", "kim@comcast.net", "Eastern Washington University")
+
+            const intName = intern.getName();
+
+            expect(intName).toEqual("Kim")
+        });
+    })
+
+    describe("getID", () => {
+        it("should pass through the stored ID when getID is called", () => {
+
+            const intern = new Intern("Kim", "56897", "kim@comcast.net", "Eastern Washington University")
+
+            const intID = intern.getID();
+
+            expect(intID).toEqual("56897")
+        });
+    })
+
+    describe("getEmail", () => {
+
+        it("should pass through the stored email when method getEmail is called", () => {
+
+            const intern = new Intern("Kim", "56897", "kim@comcast.net", "Eastern Washington University")
+
+            const intEmail = intern.getEmail();
+
+            expect(intEmail).toEqual("kim@comcast.net")
+        });
+    })
+    describe("getSchool", () => {
+
+        it("should pass through the stored email when method getSchool is called", () => {
+            const intern = new Intern("Kim", "56897", "kim@comcast.net", "Eastern Washington University")
+
+            const intSchool = intern.getSchool();
+
+            expect(intSchool).toEqual("Eastern Washington University")
+        });
+    })
+})
